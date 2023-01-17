@@ -467,7 +467,7 @@ Run the test playbook. Since some tasks require privilege escalation use the `-K
 
 ```bash
 $ ansible-playbook playbook.yml -K
-
+```
 
 # Takeaways
 
