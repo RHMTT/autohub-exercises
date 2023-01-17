@@ -191,7 +191,7 @@ the `demo_collection` in the `workshop` namespace.
 The command created the following skeleton:
 
 ```bash
-$ tree collections/ansible_collections/workshop/demo_collection/
+$ tree ~/workspace/ansible_collections/workshop/demo_collection/
 ansible_collections/workshop/demo_collection/
 ├── docs
 ├── galaxy.yml
@@ -222,7 +222,7 @@ Create the `demo_hello.py` module in the new folder. The module code is availabl
 folder of this exercise.
 
 ```bash
-cp ~/workshop/exercises/ansible_Automation-Hub/1-create-collections/solutions/modules/demo_hello.py plugins/modules/
+cp ~/exercises/ansible_Automation-Hub/1-create-collections/solutions/modules/demo_hello.py .
 ```
 
 The `demo_hello` module says Hello in different languages to custom defined users. Take your time to look at the module code and understand its behavior.
@@ -360,7 +360,7 @@ Create the following tasks in the `roles/custom_role/tasks/main.yml` file:
 
 - name: Generate greeting and store result
   timezone:
-    name: name: Asia/Tokyo
+    name: Asia/Tokyo
 
 - name: Generate greeting and store result
   demo_hello:
@@ -387,7 +387,7 @@ timezone: "Asia/Tokyo"
 The skeleton generates a complete structure files and folder. We can clean up the unused ones:
 
 ```bash
-rm -rf roles/demo_image_builder/{handlers,vars,tests}
+rm -rf roles/custom_role/{handlers,vars,tests}
 ```
 
 Customize the `roles/custom_role/meta/main.yml` file to define Galaxy metadata and potential dependencies of the role. Use this sample minimal content:
@@ -413,15 +413,7 @@ galaxy_info:
 
 dependencies: []
 ```
-Finally due to the version we are using of galaxy we need to create a meta file.
 
-```bash
-mkdir ~/workspace/ansible_collections/workshop/demo_collection/meta
-
-cat > ~/workspace/ansible_collections/workshop/demo_collection/meta/runtime.yml<< EOF
-requires_ansible: ">=2.10"
-EOF
-```
 
 ## Step 5: Building and installing collections
 
@@ -430,6 +422,7 @@ Once completed the creation task we can build the collection and generate a .tar
 From the collection folder run the following command:
 
 ```bash
+cd ~/workspace/ansible_collections/workshop/demo_collection
 ansible-galaxy collection build
 ```
 
@@ -466,13 +459,6 @@ cat > playbook.yml << EOF
     - import_role:
         name: workshop.demo_collection.custom_role
 EOF
-```
-
-Replace the `<YOUR_USERNAME>` field with a valid quay.io username.
-Before running the test playbook, be sure to have a valid auth token to authenticate to the registry. You can authenticate by running the following command and passing valid credentials that will generate a token stored in the `~/.docker/config.json` file:
-
-```bash
-podman login quay.io
 ```
 
 ### Running the test playbook
