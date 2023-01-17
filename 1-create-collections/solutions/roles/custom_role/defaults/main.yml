@@ -1,0 +1,4 @@
+---
+# defaults file for custom_role
+friend_name: "John Doe"
+timezone: "Asia/Tokyo"

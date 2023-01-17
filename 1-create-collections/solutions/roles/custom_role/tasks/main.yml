@@ -1,0 +1,20 @@
+---
+# tasks file for custom_role
+- name: Ensure timezone package is present in the host
+  dnf:
+    name: tzdata
+    state: present
+  become: true
+
+- name: Generate greeting and store result
+  tzdata:
+    name: "{{ timezone }}"    
+
+- name: Generate greeting and store result
+  demo_hello:
+    name: "{{ friend_name }}"
+  register: demo_greeting
+
+- name: Print output from demo_hello module task
+  debug:
+    var: demo_greeting
