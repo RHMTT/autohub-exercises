@@ -1,4 +1,4 @@
-# Exercise 5 - How to use Red Hat Automation Hub?
+# Exercise 2 - Collections Upload to Automation Hub?
 
 ## Table of Contents
 
@@ -71,16 +71,19 @@ Select Create Group
 Create the group called devops
    ![Load token|845x550,20%](screenshots/create_group3.png)
 
-The group has no permissions yet so we want to edit this.
+The group has no roles asociated yet so we want to add roles.
    ![Load token|845x550,20%](screenshots/create_group4.png)
 
-We want to give it the ability to upload to namespaces, modify and delete collections, all the options for Containers and view all tasks, you are free to add aditional if you want to also, and click save.
-   ![Load token|845x550,20%](screenshots/create_group5.png)
+We want to give it the ability to upload to namespaces, select galaxy.collection_publisher. you are free to add aditional if you want to also, and click next.
+   ![Load token|845x550,20%](screenshots/role_select.png)
 
+Review and click Add
+   ![Load token|845x550,20%](screenshots/role_select2.png)
+   
 Next we then want to create a user so click on Users under User Access and then click on create
    ![Load token|845x550,20%](screenshots/create_user1.png)
 
-Call the username devuser, use the same password we have used for the workshop and add it to the devops group and click save.
+Call the username devuser, You can use any password thats 8 charecters long Welcome1! works and add it to the devops group and click save.
    ![Load token|845x550,20%](screenshots/create_user2.png)
 
 We want to create a namespace that is the same as the collection we built earlier 'workshop'
