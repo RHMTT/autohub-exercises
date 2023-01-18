@@ -413,7 +413,13 @@ galaxy_info:
 
 dependencies: []
 ```
-
+Customize the `meta/runtime.yml` file to define the minimum version of ansible needed. Use this sample minimal content:
+```yaml
+---
+# Collections must specify a minimum required ansible version to upload
+# to galaxy
+requires_ansible: '>=2.9.10'
+```
 
 ## Step 5: Building and installing collections
 
