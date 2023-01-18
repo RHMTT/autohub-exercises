@@ -463,10 +463,10 @@ EOF
 
 ### Running the test playbook
 
-Run the test playbook. Since some tasks require privilege escalation use the `-K` option to authenticate via sudo.
+Run the test playbook.
 
 ```bash
-$ ansible-playbook playbook.yml -K
+$ ansible-playbook playbook.yml
 ```
 
 # Takeaways
