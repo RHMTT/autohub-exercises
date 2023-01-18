@@ -328,8 +328,8 @@ curl -O https://raw.githubusercontent.com/ansible/ansible/stable-2.9/lib/ansible
 
 ```bash
 ls -l
-
--rw-rw-r--. 1 root root 14096 Jan 16 15:47 timezone.py
+-rw-rw-r--. 1 student student  1355 Jan 18 09:04 demo_hello.py
+-rw-rw-r--. 1 student student 36525 Jan 18 09:05 timezone.py
 ```
 
 Likewise you can place your own modules under plugins/modules directory and other plugins lookups, filters, and so on in their respecting directory by creating them.
