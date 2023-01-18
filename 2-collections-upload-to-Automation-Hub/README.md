@@ -137,6 +137,6 @@ You will now see your collection is available and has the version information as
 ----
 **Navigation**
 <br>
-[Previous Exercise](../4-collections-from-tower/)
+[Previous Exercise](../1-create-collections/) - [Next Exercise](../3-collections-from-playbook/)
 
 [Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md)
