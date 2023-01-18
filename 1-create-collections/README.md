@@ -482,6 +482,6 @@ $ ansible-playbook playbook.yml -K
 ----
 **Navigation**
 <br>
-[Next Exercise](../2-collections-upload-to-Automation-hub)
+[Next Exercise](./2-collections-upload-to-Automation-Hub)
 
 [Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md)
