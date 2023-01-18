@@ -72,7 +72,7 @@ Create the group called devops
    ![Load token|845x550,20%](screenshots/create_group3.png)
 
 The group has no roles asociated yet so we want to add roles.
-   ![Load token|845x550,20%](screenshots/create_group4.png)
+   ![Load token|845x550,20%](screenshots/add_roles.png)
 
 We want to give it the ability to upload to namespaces, select galaxy.collection_publisher. you are free to add aditional if you want to also, and click next.
    ![Load token|845x550,20%](screenshots/role_select.png)
