@@ -51,12 +51,4 @@ usage from playbooks, roles and Tower and an introduction to Ansible Automation 
 
 ## Authors
 
-Ansible Automation Platform 1.1 Hackfest - Team 1
-
-- Christian Jung <cjung@redhat.com>
-
-- Gianni Salinetti <gsalinet@redhat.com>
-
-- David Sastre Medina <asastrem@redhat.com>
-
-- Ismail Dhaoui <idhaoui@redhat.com>
+- Phil Avery <pavery@redhat.com>
