@@ -86,15 +86,15 @@ The server list sets the order with a comma seperated list for us and does not r
 
 The `ansible.posix.selinux` module which we want to use for this exercise, it part of the `ansible.posix` collection. We have to install this collection first, before we can use its modules. The `ansible-galaxy` command line tool can be used to automate the installation. It us preconfigured to search for roles and collections on [Ansible Galaxy](https://galaxy.ansible.com/) so we can just specify the collection name and it will take care of the rest:
 
-    ansible-galaxy collection install ansible.posix
+    ansible-galaxy collection install ansible.posix --ignore-certs
 
 This will install collection on your system, only if it wasn't installed before. To force the installation, for example to make sure you're on the latest version, you can add the force switch `-f`.
 
-    ansible-galaxy collection install -f ansible.posix
+    ansible-galaxy collection install -f ansible.posix --ignore-certs
 
 We want to also ensure we can pull our collection from private automation hub as we had this installed before we will force the installation.
 
-    ansible-galaxy collection install -f workshop.demo_collection
+    ansible-galaxy collection install -f workshop.demo_collection --ignore-certs
 
 This will always download and install the latest version, even if it was already up to date. Ansible Collections can have dependencies for other Ansible Collections as well - if you want to make sure those dependencies are refreshed as well, you can use the `--force-with-deps` switch.
 
