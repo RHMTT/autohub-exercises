@@ -66,11 +66,9 @@ first, so there is no need to use the `collections` keyword in the role metadata
 
 ## Step 2: Running collections from a role
 
-Create the exercise folder:
-
+Start from our working directory
 ```bash
-mkdir exercise-04
-cd exercise-04
+cd ~/workspace/ansible_collections
 ```
 
 For this lab, we will use the `ansible.posix` & `workshop.demo_collection` collections.
@@ -87,10 +85,10 @@ ansible-galaxy collection install workshop.demo_collection
 Create a new role using the `ansible-galaxy init` command:
 
 ```bash
-ansible-galaxy init --init-path roles demo_role_meta
+ansible-galaxy init --init-path roles demo_role
 ```
 
-Edit the `roles/demo_role_meta/meta/main.yml` file and append the following lines at the end of the file, beginning at column 1:
+Edit the `roles/demo_role/meta/main.yml` file and append the following lines at the end of the file, beginning at column 1:
 
 ```yaml
 # Collections list
@@ -99,7 +97,7 @@ collections:
   - workshop.demo_collection
 ```
 
-Edit the `roles/demo_role_meta/tasks/main.yml` file and add the following tasks:
+Edit the `roles/demo_role/tasks/main.yml` file and add the following tasks:
 
 ```yaml
 ---
@@ -124,13 +122,13 @@ Edit the `roles/demo_role_meta/tasks/main.yml` file and add the following tasks:
   loop: "{{ sebooleans_disable }}"
 
 - name: Generate greeting and store result
-    demo_hello:
-      name: "{{ friend_name }}"
-    register: demo_greeting
+  demo_hello:
+    name: "{{ friend_name }}"
+  register: demo_greeting
 
-  - name: Show value from demo_hello
-    debug:
-      var: demo_greting
+- name: Show value from demo_hello
+  debug:
+    var: demo_greeting
 ```
 
 > **NOTE:** We're using the simple module name. Ansible uses the information from the
@@ -153,14 +151,17 @@ Cleanup unused folders in the role:
 rm -rf roles/demo_role_meta/{tests,vars,handlers,files,templates}
 ```
 
-We can now test the new role with a basic playbook. Create the `playbook.yml` file
-in the current folder with the following content:
+We can now test the new role with a basic playbook. Create the `role_playbook.yml` file
+
+~/workspace/ansible_collections/role_playbook.yml
+
 
 ```yaml
 ---
 - hosts: localhost
   become: true
   vars:
+    ansible_python_interpreter: /usr/bin/python3
     sebooleans_enable:
       - httpd_can_network_connect
       - httpd_mod_auth_pam
