@@ -62,7 +62,7 @@ After Logging in you will see a screen showing its empty of collections.
 
 We want to go ahead and create a group
 
-Expand Collections and select Namespaces
+Expand User Access and select Groups.
    ![Load token|845x550,20%](screenshots/create_group1.png)
 
 Select Create Group
