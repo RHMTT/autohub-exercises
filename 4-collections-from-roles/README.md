@@ -263,6 +263,6 @@ This concludes the guided exercise.
 ----
 **Navigation**
 <br>
-[Previous Exercise](../3-collections-from-playbook/) - [Next Exercise](../5-create-execution-environment/)
+[Previous Exercise](../3-collections-from-playbook/) - [Next Exercise](../5-collections-from-controller/)
 
 [Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md)
