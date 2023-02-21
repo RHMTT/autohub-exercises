@@ -1,4 +1,4 @@
-# Exercise 2 - Using Ansible Collections
+# Exercise 3 - Using Ansible Collections
 
 ## Table of Contents
 
@@ -121,29 +121,25 @@ We want to use the SELinux module to make sure it is configured in enforcing mod
 Let's write a simple playbook which enables SELinux and sets it to enforcing mode on the local machine, as well as runs a module from our custom collection.
 
 ```yaml
+cat > ~/workspace/ansible_collections/demo_playbook.yml << EOF
 ---
-- name: set SELinux to enforcing
+- name: Run demo collection module
   hosts: localhost
   become: yes
   vars: 
     friend_name: John Doe
   tasks:
-  - name: set SElinux to enforcing
-    ansible.posix.selinux:
-      policy: targeted
-      state: enforcing
-
   - name: Generate greeting and store result
-    workshop.demo_collecton.demo_hello:
+    workshop.demo_collection.demo_hello:
       name: "{{ friend_name }}"
     register: demo_greeting
 
   - name: Show value from demo_hello
     ansible.builtin.debug:
-      var: demo_greting
+      var: demo_greeting
+EOF
 ```
 
-Save the playbook as `demo_playbook.yml` for later.
 
 > **NOTE**: Pay special attention to the module name. Typically you would see something like `selinux`, but since we are using a module provided by an Ansible Collection, we have to specify the fully qualified module name.
 
@@ -152,8 +148,6 @@ Save the playbook as `demo_playbook.yml` for later.
 You can run the Playbook and see what happens:
 
     ansible-playbook demo_playbook.yml
-
-If SELinux was not set to enforcing before, you might see "changed" instead of ok. If it did say "changed" and you run it a second time, you should now see "ok" - the magic of [Ansible idempotency](https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html).
 
 ## Step 5 - Simplify the namespace
 
@@ -167,7 +161,6 @@ You can use the `collections` key word to skip defining the namespace with every
   hosts: localhost
   become: yes
   collections:
-  - ansible.posix
   - workshop.demo-collection
   - ansible.builtin
   tasks:
