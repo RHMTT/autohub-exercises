@@ -123,20 +123,26 @@ Let's write a simple playbook which enables SELinux and sets it to enforcing mod
 ```yaml
 cat > ~/workspace/ansible_collections/demo_playbook.yml << EOF
 ---
-- name: Run demo collection module
+- name: set SELinux to enforcing
   hosts: localhost
   become: yes
-  vars: 
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
     friend_name: John Doe
   tasks:
+  - name: set SElinux to enforcing
+    ansible.posix.selinux:
+      policy: targeted
+      state: enforcing
+
   - name: Generate greeting and store result
-    workshop.demo_collection.demo_hello:
+    workshop.demo_collecton.demo_hello:
       name: "{{ friend_name }}"
     register: demo_greeting
 
   - name: Show value from demo_hello
     ansible.builtin.debug:
-      var: demo_greeting
+      var: demo_greting
 EOF
 ```
 
@@ -161,10 +167,19 @@ You can use the `collections` key word to skip defining the namespace with every
   hosts: localhost
   become: yes
   collections:
+  - ansible.posix
   - workshop.demo-collection
   - ansible.builtin
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    friend_name: John Doe
   tasks:
-  - name: Generate greeting and store result
+  - name: set SElinux to enforcing
+    selinux:
+      policy: targeted
+      state: enforcing
+
+- name: Generate greeting and store result
     demo_hello:
       name: "{{ friend_name }}"
     register: demo_greeting
