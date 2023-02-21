@@ -164,12 +164,7 @@ You can use the `collections` key word to skip defining the namespace with every
   - workshop.demo-collection
   - ansible.builtin
   tasks:
-  - name: set SElinux to enforcing
-    selinux:
-      policy: targeted
-      state: enforcing
-
-- name: Generate greeting and store result
+  - name: Generate greeting and store result
     demo_hello:
       name: "{{ friend_name }}"
     register: demo_greeting
