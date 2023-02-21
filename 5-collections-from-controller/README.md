@@ -1,11 +1,11 @@
-# Exercise 4 - How to use Collections on Red Hat Ansible Tower
+# Exercise 5 - How to use Collections on Red Hat Ansible Controller
 
 ## Table of Contents
 
 - [Objective](#objective)
 - [Guide](#guide)
-    - [Step 1 - Write a requirements.yml](#step-1---write-a-requirementsyml)
-    - [Step 2 - Create Job Template](#step-2---create-job-template)
+    - [Step 1 - Create a Credential for Private Automation Hub](#step-1---write-a-requirementsyml)
+    - [Step 2 - Define Collection lookup on Organization](#step-2---create-job-template)
 - [Troubleshooting](#troubleshooting)
 
 # Objective
