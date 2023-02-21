@@ -41,7 +41,7 @@ and executed in complex Ansible-based projects.
 
 ### Preparing the exercise environment
 
-Create a directory in your lab named `collections\ansible-collections` and cd into it.
+Create a directory in your lab named `workspace\ansible-collections` and cd into it.
 
 ```bash
 mkdir -p ~/workspace/ansible_collections
@@ -353,22 +353,22 @@ Create the following tasks in the `roles/custom_role/tasks/main.yml` file:
 ---
 # tasks file for demo_custom_role
 - name: Ensure timezone package is present in the host
-  dnf:
+  ansible.builtin.dnf:
     name: tzdata
     state: present
   become: true
 
 - name: Generate greeting and store result
-  timezone:
+  workshop.demo_collection.timezone:
     name: Asia/Tokyo
 
 - name: Generate greeting and store result
-  demo_hello:
-    name: "{{ friend_name }}"
+  workshop.demo_collection.demo_hello:
+    name: ""
   register: demo_greeting
 
 - name: Print output from demo_hello module task
-  debug:
+  ansible.builtin.debug:
     var: demo_greeting
 ```
 
