@@ -82,7 +82,7 @@ Select edit
 Click on the magnifying glass next to Galaxy Credentials.
 Put a tick into the Private automation hub credential you created and then you will see it populate at the top, then you want to drag it above Ansible Galaxy so the order in which it looks up is correct.
 
-   ![Load token|845x550,20%](screenshots/order_default_org.png)
+   ![Load token|845x550,20%](screenshots/order_galaxy.png)
 
 Press Select and Save.
 
