@@ -134,7 +134,7 @@ Edit the `roles/demo_role/tasks/main.yml` file and add the following tasks:
 > **NOTE:** We're using the simple module name. Ansible uses the information from the
 > `collections` list in the metadata file to locate the collection(s) used.
 
-Edit the `roles/demo_role_meta/defaults/main.yml` to define default values for role variables:
+Edit the `roles/demo_role/defaults/main.yml` to define default values for role variables:
 
 ```yaml
 ---
@@ -148,7 +148,7 @@ friend_name: Jane Doe
 Cleanup unused folders in the role:
 
 ```bash
-rm -rf roles/demo_role_meta/{tests,vars,handlers,files,templates}
+rm -rf roles/demo_role/{tests,vars,handlers,files,templates}
 ```
 
 We can now test the new role with a basic playbook. Create the `role_playbook.yml` file
