@@ -136,13 +136,13 @@ cat > ~/workspace/ansible_collections/demo_playbook.yml << EOF
       state: enforcing
 
   - name: Generate greeting and store result
-    workshop.demo_collecton.demo_hello:
+    workshop.demo_collection.demo_hello:
       name: "{{ friend_name }}"
     register: demo_greeting
 
   - name: Show value from demo_hello
     ansible.builtin.debug:
-      var: demo_greting
+      var: demo_greeting
 EOF
 ```
 
@@ -168,7 +168,7 @@ You can use the `collections` key word to skip defining the namespace with every
   become: yes
   collections:
   - ansible.posix
-  - workshop.demo-collection
+  - workshop.demo_collection
   - ansible.builtin
   vars:
     ansible_python_interpreter: /usr/bin/python3
@@ -186,7 +186,7 @@ You can use the `collections` key word to skip defining the namespace with every
 
   - name: Show value from demo_hello
     debug:
-      var: demo_greting
+      var: demo_greeting
 ```
 
 > **NOTE**: Although the syntax looks similar to how you specify roles, this works different. They keyword `roles` will execute the `tasks/main.yml` in each role. The `collections` keyword is merely a shortcut so you can skip the author and namespace every time you use a module in a task.
