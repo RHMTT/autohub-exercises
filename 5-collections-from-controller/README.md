@@ -142,9 +142,6 @@ Credentials: Workshop Credential
 
 Scroll down and click save
 
-   ![Load token|845x550,20%](screenshots/create_template.png)
-
-
 All we have left to do now is to launch the template click on launch
 
    ![Load token|845x550,20%](screenshots/launch_template.png)
