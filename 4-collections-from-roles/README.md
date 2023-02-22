@@ -258,7 +258,7 @@ This concludes the guided exercise.
 
 - Collections can be called from roles using the `collections` list defined in `meta/main.yml`.
 
-- Collections can be called from roles using their FQCN directly from the role task.
+- Collections can be called from roles using their FQCN directly from the role task
 
 ----
 **Navigation**
