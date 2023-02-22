@@ -37,7 +37,6 @@ usage from playbooks, roles and Tower and an introduction to Ansible Automation 
 
 - [Exercise 5 - Collections from Control Node](./5-collections-from-control)
 
-- [Exercise 6 - Execution Environments](./6-create-execution-environment)
 
 ## Additional Information
 
