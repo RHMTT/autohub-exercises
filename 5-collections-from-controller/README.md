@@ -88,9 +88,73 @@ Press Select and Save.
 
 ## Step 3 - Create a Project 
 
-Since Red Hat Ansible Tower does only check for updates in the repository in which you stored your Playbook, it might not do a refresh if there was a change in the Ansible Collection used by your Playbook. This happens particularly if you also combine Roles and Collections.
+Now that we have created a Credential to be able to locate our colletion from Automation hub, we next want to have the controller download the Project and Collection.
 
-In this case you should check the option **Delete on Update** which will delete the entire local directory during a refresh.
+Navigate to Projects.
+
+   ![Load token|845x550,20%](screenshots/select_project.png)
+
+Add a new Project
+
+   ![Load token|845x550,20%](screenshots/add_project.png)
+
+Fill in the Project fields as such
+
+name: Demo Project
+Source Control Type: Git
+Source Control URL: https://github.com/RHMTT/automation_hub.git
+
+   ![Load token|845x550,20%](screenshots/create_project.png)
+
+Click Save
+
+This will initiate it to download it, you will see a sync running
+
+   ![Load token|845x550,20%](screenshots/sync_project.png)
+
+It will change to Successful you can click on it whilst it syncs or when it completes to see the output, at the bottom of the sync you will see it shows it pulled the collections for us.
+
+   ![Load token|845x550,20%](screenshots/sync_project_complete.png)
+
+Not only do we see the output but the location where the local copy is on the controller server if we wanted to check it.
+
+## Step 4 - Create a Template
+
+The Project also had a basic playbook inside of it also that we can run to see that we can execute this with our custom collection from Automation Hub.
+
+Navigate to Templates
+
+   ![Load token|845x550,20%](screenshots/select_template.png)
+
+Add a new template
+
+   ![Load token|845x550,20%](screenshots/add_template.png)
+
+Fill in the following
+
+Name: Demo Template
+Inventory:  Workshop Inventory
+Project: Demo Project
+Playbook: playbook.yml
+Credentials: Workshop Credential
+
+   ![Load token|845x550,20%](screenshots/create_template.png)
+
+Scroll down and click save
+
+   ![Load token|845x550,20%](screenshots/create_template.png)
+
+
+All we have left to do now is to launch the template click on launch
+
+   ![Load token|845x550,20%](screenshots/launch_template.png)
+
+
+This will go to the job output window and we can see it execute 
+
+   ![Load token|845x550,20%](screenshots/template_output.png)
+
+This now completes how we can use Collections from Automation Hub with Controller.
 
 If there is a problem while parsing your `requirements.yml` it worth testing it with the `ansible-galaxy` command. As a reminder, Red Hat Ansible Controller basically also just runs the command for you with the appropriate parameters, so testing this works manually makes a lot of sense.
 
